@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:cunning_document_scanner/cunning_document_scanner.dart';
+import 'package:document_scanner/upload/screens/recorder_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -104,7 +105,11 @@ class _UploadOptionsState extends State<UploadOptions> {
         ListTile(
           leading: const Icon(Icons.mic),
           title: const Text("تسجيل صوتي"),
-          //onTap: () => recordAudio(context),
+          onTap: () => showDialog(
+              context: context,
+              builder: (context) {
+                return const AudioRecorderDialog();
+              }),
         ),
       ],
     );

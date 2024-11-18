@@ -28,14 +28,17 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  audioplayers: ^6.1.0
   cunning_document_scanner: ^1.2.3
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
   flutter_doc_scanner: ^0.0.8
   image_picker: ^1.1.2
+  intl: ^0.20.0
   path_provider: ^2.1.5
   permission_handler: ^11.3.1
+  record: ^5.2.0
   video_player: ^2.9.2
 
 dev_dependencies:
