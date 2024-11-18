@@ -1,12 +1,9 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:cunning_document_scanner/cunning_document_scanner.dart';
-import 'package:document_scanner/upload/screens/record_video_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:video_player/video_player.dart';
 
 class UploadOptions extends StatefulWidget {
   const UploadOptions({super.key});
@@ -66,12 +63,21 @@ class _UploadOptionsState extends State<UploadOptions> {
 // --- video recorder ---
   final ImagePicker picker = ImagePicker();
 
-
   Future<void> getVideo() async {
     final XFile? video = await picker.pickVideo(source: ImageSource.camera);
 
     if (video != null) {
       log('Video selected successfully: ${video.path}');
+    }
+  }
+
+// get gallery
+  Future<void> openGallery() async {
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      log('Image selected successfully: ${pickedFile.path}');
     }
   }
 
@@ -93,7 +99,7 @@ class _UploadOptionsState extends State<UploadOptions> {
         ListTile(
           leading: const Icon(Icons.photo_library),
           title: const Text("المعرض"),
-          //onTap: () => openGallery(context),
+          onTap: () => openGallery(),
         ),
         ListTile(
           leading: const Icon(Icons.mic),
